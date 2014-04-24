@@ -1,0 +1,152 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<title>Single page template</title> 
+	<link rel="stylesheet" href="jquery.mobile-1.2.0.min.css" />
+	<script src="jquery-1.7.2.min.js"></script>
+	<script src="jquery.mobile-1.2.0.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/main.js"></script>
+	<script type="text/javascript" src="js/bdLocal.js"></script>
+</head> 
+<body onload="main()"> 
+<div data-role="page" id="inicio">
+	<div data-role="header"><!-- Inicia el Cabecera -->
+		<h1>Tiendita de Regalos</h1>
+	</div><!-- Termina el Cabecera -->
+
+	<div data-role="content"><!-- Inicia el Contenido-->
+			
+			<ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-filter="false" data-inset="true">
+				<li class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-corner-top ui-btn-up-c" data-theme="c" data-iconpos="right" data-icon="arrow-r" data-wrapperels="div" data-iconshadow="true" data-shadow="false" data-corners="false"><div class="ui-btn-inner ui-li ui-corner-top"><div class="ui-btn-text">
+				<a class="ui-link-inherit" href="#Agregar">Agregar Elemento</a>
+				</div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>
+				<li class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c" data-theme="c" data-iconpos="right" data-icon="arrow-r" data-wrapperels="div" data-iconshadow="true" data-shadow="false" data-corners="false"><div class="ui-btn-inner ui-li"><div class="ui-btn-text">
+				<a class="ui-link-inherit" href="#Modificar">Modificar Elemento</a>
+				</div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>
+				<li class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-btn-up-c" data-theme="c" data-iconpos="right" data-icon="arrow-r" data-wrapperels="div" data-iconshadow="true" data-shadow="false" data-corners="false"><div class="ui-btn-inner ui-li"><div class="ui-btn-text">
+				<a class="ui-link-inherit" href="#Eliminar" onclick="Mostrar(1);">Borrar Elemento</a>
+				</div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>
+			</ul>
+	</div>
+	
+	<div data-role="footer"><!-- Inicia el Pie -->
+		<h4>Pie de Pagina</h4>
+	</div><!-- Termina el Pie -->
+	
+</div><!-- /page -->
+
+<!-- inicia pagina para Agregar -->
+<div data-role="page" id="Agregar">
+	<div data-role="header"><!-- Inicia el Cabecera -->
+		<h1>Tiendita de Regalos</h1>
+	</div><!-- Termina el Cabecera -->
+
+	<div data-role="content"><!-- Inicia el Contenido-->
+			
+			<div class="ui-field-contain ui-body ui-br" data-role="fieldcontain">
+			<input class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" name="tbNombre" id="tbNombre" value="" placeholder="Nombre:" type="text">
+			</div>
+			<div class="ui-field-contain ui-body ui-br" data-role="fieldcontain">
+			<input class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" name="tbDescripcion" id="tbDescripcion" value="" placeholder="Descripcion:" type="text">
+			</div>
+			<div class="ui-field-contain ui-body ui-br" data-role="fieldcontain">
+			<input class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" name="tbPrecio" id="tbPrecio" value="" placeholder="Precio:" type="number">
+			</div>
+			<div class="ui-field-contain ui-body ui-br" data-role="fieldcontain">
+			<input class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" name="tbExistencia" id="tbExistencia" value="" placeholder="Existencia:" type="number">
+			</div>
+	</div>
+	
+	<div data-role="footer"><!-- Inicia el Pie -->
+		<a aria-disabled="false" onclick="Agregar(1)" >Agregar</a>
+		<a aria-disabled="false" href="#inicio">Regresar</a>
+	</div><!-- Termina el Pie -->
+	
+</div><!-- /page -->
+
+<!-- inicia pagina para Agregar -->
+<div data-role="page" id="Modificar">
+	<div data-role="header"><!-- Inicia el Cabecera -->
+		<h1>Tiendita de Regalos</h1>
+	</div><!-- Termina el Cabecera -->
+
+	<div data-role="content"><!-- Inicia el Contenido-->
+				
+			<ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-filter="true" data-inset="true" >
+
+				<li class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-corner-top ui-btn-up-c" data-theme="c" data-iconpos="right" data-icon="arrow-r" data-wrapperels="div" data-iconshadow="true" data-shadow="false" data-corners="false"><div class="ui-btn-inner ui-li ui-corner-top"><div class="ui-btn-text">
+				<a class="ui-link-inherit" href="#vModificar">Elemento 1</a>
+				</div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>
+				
+				<li class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-corner-top ui-btn-up-c" data-theme="c" data-iconpos="right" data-icon="arrow-r" data-wrapperels="div" data-iconshadow="true" data-shadow="false" data-corners="false"><div class="ui-btn-inner ui-li ui-corner-top"><div class="ui-btn-text">
+				<a class="ui-link-inherit" href="#vModificar">Elemento 2</a>
+				</div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>
+				
+				<li class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-corner-top ui-btn-up-c" data-theme="c" data-iconpos="right" data-icon="arrow-r" data-wrapperels="div" data-iconshadow="true" data-shadow="false" data-corners="false"><div class="ui-btn-inner ui-li ui-corner-top"><div class="ui-btn-text">
+				<a class="ui-link-inherit" href="#vModificar">Elemento 3</a>
+				</div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>
+				
+			</ul>
+			
+	</div>
+	
+	<div data-role="footer"><!-- Inicia el Pie -->
+		<a aria-disabled="false" href="#inicio">Regresar</a>
+	</div><!-- Termina el Pie -->
+	
+</div><!-- /page -->
+
+<!-- inicia pagina para Agregar -->
+<div data-role="page" id="Eliminar">
+	<div data-role="header"><!-- Inicia el Cabecera -->
+		<h1>Tiendita de Regalos</h1>
+	</div><!-- Termina el Cabecera -->
+
+	<div data-role="content"><!-- Inicia el Contenido-->
+				
+			<ul class="ui-listview ui-listview-inset ui-corner-all ui-shadow" data-role="listview" data-filter="true" data-inset="true" id="ListaEliminar">
+				
+			</ul>
+			
+	</div>
+	
+	<div data-role="footer"><!-- Inicia el Pie -->
+		<a aria-disabled="false" href="#inicio">Regresar</a>
+	</div><!-- Termina el Pie -->
+	
+</div><!-- /page -->
+
+<!-- inicia pagina para Agregar -->
+<div data-role="page" id="vModificar">
+	<div data-role="header"><!-- Inicia el Cabecera -->
+		<h1>Tiendita de Regalos</h1>
+	</div><!-- Termina el Cabecera -->
+
+	<div data-role="content"><!-- Inicia el Contenido-->
+			
+			<div class="ui-field-contain ui-body ui-br" data-role="fieldcontain">
+			<input class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" name="tbNombre" id="tbNombre" value="" placeholder="Nombre:" type="text">
+			</div>
+			<div class="ui-field-contain ui-body ui-br" data-role="fieldcontain">
+			<input class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" name="tbDescripcion" id="tbDescripcion" value="" placeholder="Descripcion:" type="text">
+			</div>
+			<div class="ui-field-contain ui-body ui-br" data-role="fieldcontain">
+			<input class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" name="tbPrecio" id="tbPrecio" value="" placeholder="Precio:" type="number">
+			</div>
+			<div class="ui-field-contain ui-body ui-br" data-role="fieldcontain">
+			<input class="ui-input-text ui-body-c ui-corner-all ui-shadow-inset" name="tbExistencia" id="tbExistencia" value="" placeholder="Existencia:" type="number">
+			</div>
+	</div>
+	
+	<div data-role="footer"><!-- Inicia el Pie -->
+		<a aria-disabled="false" >Modificar</a>
+		<a aria-disabled="false" href="#Modificar">Regresar</a>
+	</div><!-- Termina el Pie -->
+	
+</div><!-- /page -->
+
+</body>
+</html>
