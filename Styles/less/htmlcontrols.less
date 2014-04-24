@@ -1,0 +1,47 @@
+input.accent-bg, textarea.accent-bg, select.accent-bg, input, textarea, select {
+    &:focus  
+    {
+        background: white !important; 
+        color: Black !important; 
+        outline-style: hidden !important; 
+        outline-color: transparent !important;
+        outline: none !important;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
+    }
+}
+
+input[type=text], input[type=password], input[type=number], input[type=date], input[type=datetime], textarea, select {
+	.show; .size(100%, 30px); .taleft;
+	border: none; font-size: 17px;
+	max-height: 100px; max-width: 100%; vertical-align: middle;
+	padding: 0 0 0 5px;
+	z-index: 2500; 
+	.rounded(0);
+	
+	&::-webkit-input-placeholder { line-height: 1; position: relative; top: 3px; }
+    &.input-mini { .iblock; .fleft; .size(50px, 31px); .tacenter; margin: 0; padding: 2px 5px; }
+}
+
+textarea {
+	.size(100%, 250px);
+}
+
+.metro-select {
+    .iblock; .size(auto, 28px, initial); .appearance(none);
+    padding-right: 20px !important; color: #fff;
+    background: url("@{img-folder}/icon_arrow_down.png") #24A0DA 95% 50% no-repeat; z-index: 1500;
+
+    
+    &:active 	{ outline: none;   }
+    &:focus 	{ outline: none;   }
+    &:hover     { cursor: pointer; }
+}
+
+/*#region MOBI SCROLL */
+.dwbg, .dw  {
+    a, span, div, p { .nobox; }
+}
+.dw {
+	.nobox;
+}
+/*#endregion MOBI SCROLL */

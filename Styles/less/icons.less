@@ -1,0 +1,113 @@
+.icon {
+	.iblock; .size(48px, 48px);  .position(relative, 50%);
+	background: url("@{img-folder}/icon_states.png") no-repeat; margin-top: -24px;
+	
+	&.Done, &.Approved  		{ background-position: -48px -48px;  }
+	&.blocked               	{ background-position: -48px 0; 	 }
+	&.To                 		{ background-position: -48px -240px; }
+	&.In.Progress           	{ background-position: -48px -96px;  }
+	&.open                  	{ background-position: -48px -192px; }
+
+	&.New                   	{ background-position: -48px -240px; }
+	&.Committed             	{ background-position: -48px -240px; }
+	&.Removed               	{ background-position: -48px -144px; }
+	
+	a { .show; .size(100%, 100%); }
+}
+
+.icon-57 {
+	.iblock; .size(57px, 57px);
+	background: url("@{img-folder}/icon_57x57.png") no-repeat center center;
+
+	&.settings  { background-position: center -397px; }
+	&.repos     	{ background-position: center -456px; }
+	&.sprints   	{ background-position: center -114px; }
+	&.projects  	{ background-position: center -170px; }
+	&.users     	{ background-position: center -228px; }
+	&.us        	{ background-position: center -513px; }
+	&.devices   	{ background-position: center -570px; }
+	&.subscribe 	{ background-position: center -627px; }
+	&.connect   	{ background-position: center -684px; }
+}
+
+.icon-action {
+	.iblock; .size(30px, 30px); 
+	background: url("@{img-folder}/icon_actions.png") no-repeat;
+	margin: 0 15px 0 0;
+	
+	&:hover { cursor: pointer; z-index: 4500; }
+
+	&.topleft  			{ margin: 10px 5px 5px 10px; z-index: 5500; }
+	&.topright 			{ margin: 10px 10px 0 5px; }
+	&.main-top-right    	{ margin: 0 0 0 10px; .position(absolute, 10px, 10px); }
+	&.mini 				{ margin: 0; .position(relative, 9px); }
+
+	&.back         	{ background-position: 0 -30px;   }
+	&.more         	{ background-position: 0 -120px;  }
+	&.save         	{ background-position: 0 -240px;  }
+	&.edit         	{ background-position: 0 -270px;  }
+	&.userstory 	{ background-position: 0 -300px;  }
+	&.settings      { background-position: 0 -390px;  }
+	&.add          	{ background-position: 0 -420px;  }
+	&.update       	{ background-position: 0 -540px;  }
+	&.clock        	{ background-position: 0 -570px;  }
+	&.revert       	{ background-position: 0 -600px;  }
+	&.delete       	{ background-position: 0 -630px;  }
+	&.user			{ background-position: 0 -690px;  }
+	&.undo         	{ background-position: 0 -720px;  }
+	&.pin          	{ background-position: 0 -750px;  }
+	&.lock         	{ background-position: 0 -780px;  }
+	&.unlock       	{ background-position: 0 -810px;  }
+	&.client       	{ background-position: 0 -870px;  }
+	&.server       	{ background-position: 0 -900px;  }
+	&.money        	{ background-position: 0 -930px;  }
+	&.list         	{ background-position: 0 -960px;  }
+	&.user         	{ background-position: 0 -1020px; }
+	&.upload       	{ background-position: 0 -1110px; }
+	&.download     	{ background-position: 0 -1110px; .rotate(180deg); }
+	&.unpin        	{ background-position: 0 -1140px; }
+	&.question     	{ background-position: 0 -1230px; }
+	&.nomoney      	{ background-position: 0 -1260px; }
+	&.delete.undo  	{ background-position: 0 -1290px; }
+	&.edit.mini    	{ background-position: 0 -1320px; }
+	&.more-circle  	{ background-position: 0 -1380px; }
+	&.wrong        	{ background-position: 0 -1410px; }
+	&.good         	{ background-position: 0 -1440px; }
+}
+
+input.icon-action {
+    background: url("@{img-folder}/icon_actions.png") no-repeat; border: none;
+    
+    &:hover  { cursor: pointer; z-index: 4500; }
+    &:active { .opacity(0.7); .scale(0.85); }
+}
+
+.detail .icon-action.topleft { margin: 10px 15px 15px 0px; .fnone; }
+
+.icon-checkbox {
+    .iblock; .size(28px, 28px);
+    background: url("@{img-folder}/icon_check.png") 0 30px no-repeat #fff;
+    
+    &.checked   { background-position: center center; }
+    &:hover     	{ cursor: pointer; }
+}
+
+.event-controller { .position(absolute, 0, 0); z-index: 6500; }
+.icon-mini {
+    padding: 0 5px; .opacity(0.4);
+    
+    &:hover { cursor: pointer; }
+}
+
+.button-action {
+	.iblock; .size(35px, 35px); .fleft; .tacenter;
+
+	&:hover { .pointer; }
+}
+
+.field-holder .button-action {
+	padding: 7px 5px; margin: 0 3px;
+
+	&.wider { width: 70px; margin: 0; }
+}
+.inner { margin: 10px 0 0 40px; }

@@ -1,0 +1,264 @@
+.accent-bg 			{ background-color:#24A0DA; color: #fff; }
+.bg-inactive 		{ background-color:@metro-gray; color: #fff; }
+.theme-bg  			{ background: #000; }
+.accent-color, a 	{ color:#24A0DA; }
+
+.metro-tile-wide  {
+	background: @metro-lightblue; border: 1px solid lighten(@metro-lightblue, 10%);
+	
+	&.pinned  { background: @metro-lightgreen; border: 1px solid lighten(@metro-lightgreen, 10%); }
+}
+
+.theme-black {
+	background: url("@{img-folder}/promo_bg.png") top right black no-repeat; color: white;
+
+	.metro-loading 	{ background: url("@{img-folder}/promo_bg.png") top right black no-repeat; color: white; }
+	
+	.tile {
+		background: @metro-done; border: 1px solid lighten(@metro-done, 10%);
+	}
+}
+
+.theme-darkblue {
+	background: #30508B; color: white;
+
+	.metro-loading { background: #30508B; color: white; }
+
+	.tile { background: @metro-blue; border: 1px solid lighten(@metro-blue, 10%); }
+	.metro-tile-wide {
+		background: @metro-lightblue; border: 1px solid lighten(@metro-lightblue, 10%);
+
+		&.pinned { background: @metro-orange; border: 1px solid lighten(@metro-orange, 10%); }
+	}
+}
+
+.theme-darkgray {
+	background: #5A5A5A; color: white;
+
+	.metro-loading { background: #5A5A5A; color: white; }
+
+	.tile { background: @metro-blue; border: 1px solid lighten(@metro-blue, 10%); }
+}
+
+.theme-img_1 {
+	background: url("@{img-folder}/bg/bg_1.jpg"); color: white;
+	
+	.metro-loading { background: url("@{img-folder}/bg/bg_1.jpg"); }
+
+	.tile { background: @metro-greenblue; border: 1px solid lighten(@metro-greenblue, 10%); }
+	.metro-tile-wide  {
+		background: @metro-green; border: 1px solid lighten(@metro-green, 10%);
+
+		&.pinned { background: @metro-orange; border: 1px solid lighten(@metro-orange, 10%); }
+	}
+}
+
+.theme-img_2 {
+	background: url("@{img-folder}/bg/bg_2.jpg"); color: white;
+	
+	.metro-loading { background: url("@{img-folder}/bg/bg_2.jpg"); }
+
+	.tile { background: @metro-done; border: 1px solid lighten(@metro-done, 5%); }
+	.metro-tile-wide  {
+		background: @metro-lightblue; border: 1px solid lighten(@metro-lightblue, 10%);
+
+		&.pinned { background: @metro-lightgreen; border: 1px solid lighten(@metro-lightgreen, 5%); }
+	}
+}
+    
+.theme-img_3 {
+	background: url("@{img-folder}/bg/bg_3.png"); color: white;
+	
+	.metro-loading { background: url("@{img-folder}/bg/bg_3.png"); }
+
+	.tile  { background: @metro-blue; border: 1px solid lighten(@metro-blue, 5%); }
+	.metro-tile-wide  {
+		background: @metro-lightgreen; border: 1px solid lighten(@metro-lightgreen, 10%);
+
+		&.pinned  { background: @metro-done; border: 1px solid lighten(@metro-done, 5%); }
+	}
+}
+
+.theme-img_4 {
+	background: url("@{img-folder}/bg/bg_4.jpg"); color: white;
+	
+	.metro-loading { background: url("@{img-folder}/bg/bg_4.jpg"); }
+
+	.tile { background: @metro-blue; border: 1px solid lighten(@metro-blue, 10%); }
+}
+
+.theme-img_5 {
+	background: url("@{img-folder}/bg/bg_5.jpg"); color: white;
+	
+	.metro-loading { background: url("@{img-folder}/bg/bg_5.jpg"); }
+	
+	.tile  { background: @metro-darkorange; border: 1px solid lighten(@metro-darkorange, 10%); }
+	.metro-tile-wide  {
+		background: @metro-orange; border: 1px solid lighten(@metro-orange, 10%);
+
+		&.pinned  { background: @metro-lightred; border: 1px solid lighten(@metro-lightred, 10%); }
+	}
+}
+
+.theme-img_6 {
+	background: url("@{img-folder}/bg/bg_6.jpg"); color: white;
+	
+	.metro-loading { background: url("@{img-folder}/bg/bg_6.jpg"); }
+
+	.tile  { background: @metro-green; border: 1px solid lighten(@metro-green, 5%); }
+}
+
+.theme-bg-thumb  { background: url("@{img-folder}/bg/bg_thumb.jpg") no-repeat; }
+.thumb-img_1 	{ background-position: 0 0; 	 }
+.thumb-img_2 	{ background-position: 0 -30px;  }
+.thumb-img_3 	{ background-position: 0 -60px;  }
+.thumb-img_4 	{ background-position: 0 -90px;  }
+.thumb-img_5 	{ background-position: 0 -120px; }
+.thumb-img_6 	{ background-position: 0 -150px; }
+
+/*#region STATES */
+.uslist {
+    .New.item {
+        padding-left: 10px;
+	    border-left: 4px solid @colorNew;
+	                    
+	    .accent-color { color: @colorNew; }
+	    .accent-bg {
+	        background-color: @colorNew;
+	        color: #fff;
+	        padding: 2px 5px; margin-right: 5px;
+	    }
+    }
+    .Approved.item {
+	    padding-left: 10px;
+	    border-left: 4px solid @colorApproved;
+	                    
+	    .accent-color { color: @colorApproved; }
+	    .accent-bg {
+	        background-color: @colorApproved;
+	        color: #fff;
+	        padding: 2px 5px; margin-right: 5px;
+	    }
+    }
+    .Committed.item {
+	    padding-left: 10px;
+	    border-left: 4px solid @colorCommitted;
+	                    
+	    .accent-color { color: @colorCommitted; }
+	    .accent-bg {
+	        background-color: @colorCommitted;
+	        color: #fff;
+	        padding: 2px 5px; margin-right: 5px;
+	    }
+    }
+}
+
+// ============================ TODO ============================ //
+.To {
+	.accent-color { color: @colorTodo; }
+	.accent-bg {
+	    background-color: @colorTodo;
+	    color: #fff;
+	    
+	    &:focus { background: white; color: Black ; }
+	}
+	&.accent-border {
+	    padding-left: 10px;
+	    
+	    &.left { border-left: 4px solid @colorTodo; }
+	}
+	&.item {
+		border-left: 4px solid @colorTodo;
+	}
+}
+
+// ============================ IN PROGRESS ============================ //
+.In.Progress {
+	.accent-bg {
+		background-color: @colorInprog; 
+		color: #fff;
+
+	    &:focus { background: white; color: Black; }
+	}
+	.accent-color { color: @colorInprog; }
+	
+	&.accent-border {
+	    padding-left: 10px;
+	    
+	    &.left { border-left: 4px solid @colorInprog; }
+	}
+	&.item {
+		border-left: 4px solid @colorInprog; 	                
+	}
+}
+
+// ============================ DONE ============================ //
+.Done {
+	.accent-bg {
+		background-color: @colorDone;
+		color: #fff;
+
+	    &:focus { background: white; color: Black; }
+	}
+	.accent-color { color: @colorDone; }
+	
+	&.accent-border {
+	    padding-left: 10px;
+	    
+	    &.left { border-left: 4px solid @colorDone; }
+	}
+	&.item {
+		border-left: 4px solid @colorDone;
+	}
+}
+
+// ============================ REMOVED ============================ //
+.Removed.item {
+	border-left: 4px solid @colorRemoved;
+	                    
+	h2 { color: @colorRemoved; .tdthrough; }
+	                
+	.accent-color { color: @colorRemoved; }
+	.accent-bg {
+	    background-color: @colorRemoved;
+	    color: #fff;
+	    padding: 2px 5px; margin-right: 5px;
+	    
+	    &:focus { background: white; color: Black; }
+	}
+}
+
+.task-list {
+    .In.Progress {
+	    .accent-bg {
+		    background-color: @colorInprog; 
+	    }
+	    .accent-color { color: @colorInprog; }
+    }
+
+    .To {
+	    .accent-bg {
+		    background-color: @colorTodo;
+	    }
+	    .accent-color { color: @colorTodo; }
+    }
+
+    .Done {
+	    .accent-bg {
+		    background-color: @colorDone;
+	    }
+	    .accent-color { color: @colorDone; }
+    }
+    
+    .true {
+	    border-left: 4px solid @colorBlocked;
+	    color: @colorRemoved;
+	                
+	    .accent-color { color: @colorRemoved; }
+	    .accent-bg {
+	        background-color: @colorRemoved;
+	    }
+	}
+
+	.text-small { padding: 2px 5px; }
+}

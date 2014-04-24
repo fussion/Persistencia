@@ -1,0 +1,222 @@
+/*#region NEW SCROLL */
+.app-container 			{ .position(absolute, 0, 0, 0, 0); .size(100%, 100%); .ohidden; }
+.metro-tiles-scroll 	{ top: 150px; bottom: 0; }
+
+.scroll-out {
+	.position(absolute, 0, auto, 45px, 0);
+	width: 100%; z-index:1;
+	overflow-x: hidden; overflow-y: auto;
+
+	.scroll-in {
+        width: 100%; padding: 0;
+		z-index:1;	    
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+	}
+	
+	&.wrapper-detailed-edit { bottom: 90px; right: 10px; left: 10px; width: auto; border-top: 1px solid transparent; }
+}
+/*#endregion NEW SCROLL */
+
+/*#region WRAPPER */
+.iscroll-wrapper {
+	.size(100%, 100%); .clear; .ohidden; .relative;
+	min-width: @metro-column; z-index:1;
+
+    .iscroll-scroller {
+	    .size(@metro-column * 5, 100%); .fleft; 
+		padding: 0;
+	    
+		.scroll-list {
+			.position(absolute, 50px, auto, 50px); .size(@metro-column - 10);
+			
+			.scroller-list { .reset-p; }
+		}
+		
+	    .pivot-list {
+	        .show; .fleft; .size(100%, 100%);
+	        margin: 0; padding: 0; list-style: none;
+        }
+		
+		.pivot {
+			.size(@metro-column, 100%); .box; .show; .fleft;
+			padding: 0 5px 0 10px;
+
+			.item {
+				padding: 0 0 0 10px;
+				
+				&.true {
+					border-left: 4px solid @colorBlocked;
+					color: @colorRemoved;
+				
+					.accent-color { color: @colorRemoved !important; }
+					.accent-bg {
+						background-color: @colorRemoved !important;
+					}
+				}
+			}
+			&:last-child { padding-right: 0; }
+		}
+	
+		.us-dated-list {
+			h1 {
+				margin-bottom: 0;
+				.maxsize(95%, 45px);
+			}
+			.scroll-list { top: 75px; }
+		}
+	}
+
+	.item .accent-bg { padding: 2px 5px; margin-right: 5px; }
+
+	.todo .item {
+		border-left: 4px solid @colorTodo;
+		
+		.accent-color { color: @colorTodo; }
+		.accent-bg {
+			background-color: @colorTodo;
+			color: #fff !important;
+		}
+	}
+	.inprog .item {
+		border-left: 4px solid @colorInprog; 	                
+		
+		.accent-color { color: @colorInprog; }
+		.accent-bg {
+			background-color: @colorInprog;
+			color: #fff !important;
+		}
+	}
+	.done .item {
+		border-left: 4px solid @colorDone;
+		
+		.accent-color { color: @colorDone; }
+		.accent-bg {
+			background-color: @colorDone;
+			color: #fff !important;
+		}
+	}
+	.review .review-item {
+		.listitem-first {
+			border-bottom: 1px solid rgba(246, 246, 246, 0.2);
+			padding-bottom: 15px;
+		}
+	
+		.tolower {
+			padding-left: 5px;
+
+			li { margin: 0 0 15px; .ohidden; }
+			
+			.first  {
+				h2 { .font-size(26); .fnone; } 
+				p  { .fnone; }
+			}
+		}
+		
+		h2, p 	{ .fleft; line-height: 27px; }
+		h2 		{ font-size: 23px; margin: 0 10px 0 0;  }
+		p  		{ font-size: 21px; margin-bottom: 0;  }
+	}
+}
+/*#endregion WRAPPER */
+
+/*#region SCROLL LIST */
+.scroll-list {
+	.size(100%, auto);
+	border-top: 1px solid transparent; z-index: 1;
+	
+	.scroller-list {
+	    .absolute; .size(100%); padding: 0 10px;
+	    
+	    p.inactive { line-height: 60px; }
+    }
+}
+
+.scrollable-list {
+	.position(absolute, 50px, 0, 0, 0);
+	overflow-y: scroll;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
+	
+	&.bottom45 { bottom: 45px; }
+	
+	.detail .item { .mauto; }
+}
+/*#endregion SCROLL LIST */
+
+/*#region SWIPEVIEW */
+.swipeview-container {
+	height: 100%;
+}
+
+.swipeview-item {
+    .position(absolute, 45px, auto, 45px);
+	width: 100%; overflow: auto; z-index: 1;
+	border-top: 1px solid transparent; // Android elements scrolling overflow fix
+        
+    .tolower {
+        .absolute; .size(100%, auto);
+        padding: 0 20px 0 5px;
+    }
+}
+
+.swipeview-slider { 
+	.relative; 
+	
+	.iscrollbarV { .hide; }
+	.swipeview-active .iscrollbarV { .show; right: 4px; }
+}
+
+.slider-action
+{
+    .position(absolute, 0, auto, 0, auto); .size(50px); .pointer; color: rgba(255, 255, 255, 0.3);
+    z-index: 4500; font-size: 150px;
+    
+    &.prev 	 { left: 0; }
+    &.next 	 { right: 0; text-indent: 10px; }
+	&:active, &:focus { 
+		.tap(); outline: none;
+	}
+
+	.arrow {
+		.show; .size(60px, 100px);
+		.position(absolute, 50%, auto, auto, 50%);	
+		margin: -50px 0 0 -30px;
+		line-height: 85px;
+	}
+}
+
+/*#endregion SWIPEVIEW */
+
+/*#region SCROLLBARS */
+.iscrollbarV {
+    .position(absolute, 2px, 1px, 7px);
+	width: 5px; z-index: 100;
+	
+    div {
+        .opacity(0.25); .rounded(4px);
+		position: absolute; width: 100%;
+	    background: #fff; border: none;
+		z-index: 100;
+    }
+}
+
+.iscroll-wrapper .scroll-list {
+    .iscrollbarV div { .opacity(0); }
+    
+    &:hover {
+        .iscrollbarV div { .opacity(0.25); }
+    }
+}
+
+.scroll-out, .scrollable-list, .swipeview-item {
+	&::-webkit-scrollbar 		{ background: transparent; width: 5px; }
+	&::-webkit-scrollbar-track 	{ background: transparent; }
+	&::-webkit-scrollbar-thumb 	{ background: rgba(255, 255, 255, 0.25); .rounded(4px); }
+}
+/*#endregion SCROLLBARS */
+
+.of-touch 
+{
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+}

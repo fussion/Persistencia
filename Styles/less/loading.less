@@ -1,0 +1,100 @@
+.metro-loading {
+    .position(absolute, 0, 0, 0, 0); .size(100%, 100%); 
+	text-align: center;
+    z-index: 7000;
+	
+    .loading-header { 
+		.show; min-height: 100px;
+		margin: -100px auto 0; .position(relative, 50%);
+		font-size: 70px; text-transform: capitalize;
+	}
+
+	.loading-subheader { 
+		position: relative; top: 50%;margin-top: -12px;
+		font-size: 28px; color: gray; text-transform: uppercase;
+	}
+}
+
+.scroll-down {
+    margin: -70px 0 20px;
+}
+
+.scroll-down, .scroll-up {
+	height: 50px;
+	line-height: 50px;
+	padding:5px 10px 5px 0;
+	font-size:14px;
+	color:#fff;
+}
+
+.scroll-down .pullDownIcon, .scroll-up .pullUpIcon  {
+	display:block; float:left; margin: 7px 7px 0 0;
+	width:32px; height:32px;
+	background:url("@{img-folder}/icon_pull_arrow.png") center center no-repeat;
+	
+	-webkit-transition-property: -webkit-transform;
+	-webkit-transition-duration: 300ms;	
+}
+
+.scroll-down .pullDownIcon {
+	-webkit-transform:rotate(0deg) translateZ(0);
+}
+
+.scroll-up .pullUpIcon  {
+	-webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+.scroll-down.flip .pullDownIcon {
+	-webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+.scroll-up.flip .pullUpIcon {
+	-webkit-transform:rotate(0deg) translateZ(0);
+}
+
+@-webkit-keyframes loadingList 
+{
+	from    { -webkit-transform:rotate(0deg) translateZ(0); 	}
+	to      	{ -webkit-transform:rotate(360deg) translateZ(0); 	}
+}
+
+.scroll-down.loading .pullDownIcon, .scroll-up.loading .pullUpIcon {
+	background-position:0 100%;
+	-webkit-transform:rotate(0deg) translateZ(0);
+	-webkit-transition-duration:0ms;
+
+	-webkit-animation-name: loadingList;
+	-webkit-animation-duration:2s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-timing-function:linear;
+}
+
+@-webkit-keyframes spin 
+{
+    from 	{ -webkit-transform: rotate(0deg); 	 }
+    to   		{ -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+    from 	{ -webkit-transform: rotate(0deg); 	 }
+    to   		{ -webkit-transform: rotate(360deg); }
+}
+@-moz-keyframes spin {
+    from 	{ -moz-transform: rotate(0deg); 	 }
+    to   		{ -moz-transform: rotate(360deg); }
+}
+@-o-keyframes spin {
+    from 	{ -o-transform: rotate(0deg); 	 }
+    to   		{ -o-transform: rotate(360deg); }
+}
+@keyframes spin {
+    from 	{ transform: rotate(0deg); 	 }
+    to   		{ transform: rotate(360deg); }
+}
+
+.ui-icon {
+    .show; .size(64px, 64px); margin: 15px auto 0;
+    background: url("@{img-folder}/icon_refresh_loading.png") transparent top left no-repeat;
+    
+    &.spin   { .animation(spin, 0.85s, infinite, linear); .rotate(360deg); }
+    &.inline  { maring: 0 5px 0 0 !important; .iblock; .position(relative, 9px); }
+}
