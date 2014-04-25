@@ -10,72 +10,18 @@
     <script type="text/javascript" charset="utf-8" src="jquery-1.11.0.js"></script>
     <script type="text/javascript" charset="utf-8" src="phonegap-1.4.1.js"></script>
     <script type="text/javascript" charset="utf-8">
-
-    // Espera a que PhoneGap se inicie
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
-
-    // Rellena la base de datos
-    //
-    function populateDB(tx) {
-        tx.executeSql('DROP TABLE IF EXISTS DEMO');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
-        tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "Primera fila")');
-        tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Segunda fila")');
-    }
-
-    // Consulta a la base de datos
-    //
-    function queryDB(tx) {
-        tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
         
-    }
-    
-    function queryDB2(tx) {
-        tx.executeSql('UPDATE DEMO SET data="hola" WHERE id=1', [], querySuccess, errorCB);
-        tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
-    }
-    
-    // Función 'callback' con el resultado de la consulta
-    //
-    function querySuccess(tx, results) {
-        var len = results.rows.length;
-        var cadena="";
-        console.log("Tabla DEMO: " + len + " filas encontradas.");
-        for (var i=0; i<len; i++){
-            console.log("Fila = " + i + " ID = " + results.rows.item(i).id + " Datos =  " + results.rows.item(i).data);
-            //$("#result").val("Fila = " + i + " ID = " + results.rows.item(i).id + " Datos =  " + results.rows.item(i).data);
-            cadena = cadena+"Fila = " + i + " ID = " + results.rows.item(i).id + " Datos =  " + results.rows.item(i).data+"<br>";
+        var name = window.localStorage.getItem("name");
+        if(name!="")
+        {
+            window.localStorage.setItem("name","Rohwin");
+            alert(name);
         }
-        document.getElementById('result').innerHTML = cadena;
-    }
-
-    // Función 'callback' de error de transacción
-    //
-    function errorCB(err) {
-        console.log("Error procesando SQL: "+err.code);
-    }
-
-    // Función 'callback' de transacción correcta
-    //
-    function successCB() {
-        var db = window.openDatabase("Database", "1.0", "Demo PhoneGap", 200000);
-        //db.transaction(queryDB, errorCB);
-        db.transaction(queryDB, errorCB);
-    }
-
-    // PhoneGap esta listo
-    //
-    function onDeviceReady() {
-        var db = window.openDatabase("Database", "1.0", "Demo PhoneGap", 200000);
-        db.transaction(populateDB, errorCB, successCB);
-    }
-    
-    function prueba()
-    {
-        var db = window.openDatabase("Database", "1.0", "Demo PhoneGap", 200000);
-        db.transaction(queryDB2, errorCB);
-    }
+        else
+        {
+            alert("No hay datos");
+        }
+        
     </script>
 </head>
 
