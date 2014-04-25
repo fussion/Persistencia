@@ -1,104 +1,92 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-    <head>
-        <style type="text/css">
-            button, input{display:block; width:90%; height:35px; margin:10px auto; }
-            input{ text-align:center; font-size:15px; color:#666; }
-            </style>
+<head>
+	<meta http-equiv="content-type" content="text/html" />
+	<meta name="author" content="GATOLOCO" />
+
+	<title>Sin título 2</title>
+    
+    
+    <script type="text/javascript" charset="utf-8" src="jquery-1.11.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="phonegap-1.4.1.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+    // Espera a que PhoneGap se inicie
+    //
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    // Rellena la base de datos
+    //
+    function populateDB(tx) {
+        tx.executeSql('DROP TABLE IF EXISTS DEMO');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
+        tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "Primera fila")');
+        tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Segunda fila")');
+    }
+
+    // Consulta a la base de datos
+    //
+    function queryDB(tx) {
+        tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
         
-        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-        <title>Ejercicio 17.2</title>
-        <script>
-            
-            document.addEventListener("deviceready", onDeviceReady, false);
-            
-            var sistemaDeArchivos;
-            var rutaArchivo;
-            
-            function onDeviceReady() {
-                //solicita acceso al filesystem
-                window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, accesoFS);
-            }
-            
-            // tenemos acceso al filesystem
-            function accesoFS(fs) {
-                sistemaDeArchivos = fs
-            }
-            
-            
-            function  crearArchivoVacio(){
-                // crea un archivo vacio 
-                sistemaDeArchivos.root.getFile("manualDelGuerreroMovil.txt", {create: true, exclusive: false}, function(_ruta){rutaArchivo = _ruta})                
-            }
-            
-            function escribirEnarchivo(){
-                
-                /// escribe los datos de la casilla de texto
-                rutaArchivo.createWriter( function(escritor){
-                                         contenido =  document.getElementById("textoArchivo").value
-                                         escritor.write(contenido)
-                                         })
-                
-            }
-            
-            function leerArchivo(){
-                
-                
-                var reader = new FileReader();
-                reader.onloadend = function(evt) {
-                    
-                    alert(evt.target.result);
-                };
-                reader.readAsText(rutaArchivo);
-                
-<<<<<<< HEAD
-                // busca o crea el directorio 
-                fileSystem.root.getFile("manualDelGuerreroMovil.txt", {create: true, exclusive: false},function(myFile){
-                                        
-                                        myFile.createWriter( function(escritor){
-                                                            escritor.write("hola mundo!!!")
-                                                            })
-                                        
-                                        }, function(){alert("fallo")})
-=======
->>>>>>> actualizaciÃ³n AUG 27,2012
-                
-            }
-            
-            function leerInfo(){
-                rutaArchivo.getMetadata(function(_data){ alert("ultima modificacion: "+_data.modificationTime)})
-            }
-            
-            function borrarArchivo(){
-                
-                rutaArchivo.remove();
-            }
-            
-            </script>
-    </head>
-    <body >
-        
-        <button onclick="crearArchivoVacio()"> Crear archivo </button>
-        
-        <hr>
-        
-        <input type="text" id="textoArchivo" value="Texto de prueba" />
-        <button onclick="escribirEnarchivo()"> Escribir en archivo </button>
-        
-        <hr>
-        
-        <button onclick=" leerArchivo()"> Leer archivo </button>
-        
-        <hr>
-        
-        <button onclick="leerInfo()"> Leer Metadata </button>
-        
-        <hr>
-        
-        <button onclick=" borrarArchivo()"> Borrar archivo</button>
-        
-        <hr>
-        
-        
-    </body>
+    }
+    
+    function queryDB2(tx) {
+        tx.executeSql('UPDATE DEMO SET data="hola" WHERE id=1', [], querySuccess, errorCB);
+        tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
+    }
+    
+    // Función 'callback' con el resultado de la consulta
+    //
+    function querySuccess(tx, results) {
+        var len = results.rows.length;
+        var cadena="";
+        console.log("Tabla DEMO: " + len + " filas encontradas.");
+        for (var i=0; i<len; i++){
+            console.log("Fila = " + i + " ID = " + results.rows.item(i).id + " Datos =  " + results.rows.item(i).data);
+            //$("#result").val("Fila = " + i + " ID = " + results.rows.item(i).id + " Datos =  " + results.rows.item(i).data);
+            cadena = cadena+"Fila = " + i + " ID = " + results.rows.item(i).id + " Datos =  " + results.rows.item(i).data+"<br>";
+        }
+        document.getElementById('result').innerHTML = cadena;
+    }
+
+    // Función 'callback' de error de transacción
+    //
+    function errorCB(err) {
+        console.log("Error procesando SQL: "+err.code);
+    }
+
+    // Función 'callback' de transacción correcta
+    //
+    function successCB() {
+        var db = window.openDatabase("Database", "1.0", "Demo PhoneGap", 200000);
+        //db.transaction(queryDB, errorCB);
+        db.transaction(queryDB, errorCB);
+    }
+
+    // PhoneGap esta listo
+    //
+    function onDeviceReady() {
+        var db = window.openDatabase("Database", "1.0", "Demo PhoneGap", 200000);
+        db.transaction(populateDB, errorCB, successCB);
+    }
+    
+    function prueba()
+    {
+        var db = window.openDatabase("Database", "1.0", "Demo PhoneGap", 200000);
+        db.transaction(queryDB2, errorCB);
+    }
+    </script>
+</head>
+
+<body>
+
+
+    <h1>Ejemplo</h1>
+    <p>Base de datos</p>
+    <button onclick="prueba();return false;">Probar</button>
+    <div id="result"></div>
+ 
+
+</body>
 </html>
